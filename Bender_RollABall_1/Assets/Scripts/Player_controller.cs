@@ -12,6 +12,9 @@ public class Player_controller : MonoBehaviour
     private Rigidbody rb;
     private int count;
 
+    Material playerMat;
+    Color originalColor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +24,21 @@ public class Player_controller : MonoBehaviour
         SetCountText();
         winText.text = "";
 
+        playerMat = GetComponent<Renderer>().material;
+
+        originalColor = playerMat.color;
+
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(playerMat);
+    }
+
+    private void Update()
+    {
+        playerMat.color = Color.Lerp(playerMat.color, originalColor, Time.deltaTime);
+   
     }
 
     // Update is called once per frame
@@ -41,6 +59,7 @@ public class Player_controller : MonoBehaviour
             other.gameObject.SetActive(false);
             count = count + 1;
             SetCountText();
+            playerMat.color = Random.ColorHSV();
 
         }
         
