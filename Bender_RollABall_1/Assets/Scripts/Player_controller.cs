@@ -43,6 +43,12 @@ public class Player_controller : MonoBehaviour
             SetCountText();
 
         }
+        
+        if (other.gameObject.CompareTag("BoostPad"))
+        {
+
+            rb.velocity = rb.velocity * 5f;
+        }
     }
     void SetCountText()
     {
