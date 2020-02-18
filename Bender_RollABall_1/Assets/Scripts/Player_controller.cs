@@ -7,7 +7,7 @@ public class Player_controller : MonoBehaviour
 {
     public float speed;
     public Text countText;
-    // public Text winText;
+    public Text winText;
 
     private Rigidbody rb;
     private int count;
@@ -19,8 +19,7 @@ public class Player_controller : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         count = 0;
         SetCountText();
-
-        //   winText.text = "";
+        winText.text = "";
 
     }
 
@@ -48,6 +47,10 @@ public class Player_controller : MonoBehaviour
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
+        if (count >= 11)
+        {
+            winText.text = "You Win!";
+        }
     }
 }
      
