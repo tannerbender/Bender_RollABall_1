@@ -47,7 +47,7 @@ public class Player_controller : MonoBehaviour
         if (other.gameObject.CompareTag("BoostPad"))
         {
 
-            rb.velocity = rb.velocity * 5f;
+            rb.velocity = rb.velocity * 2.5f;
         }
     }
     void SetCountText()
